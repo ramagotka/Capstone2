@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ga_trackingId">UA-81071613-2</string>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <screenName name="example.com.fivetribesscoringsheet.MainActivity">
+        Main screen
+    </screenName>
+    <screenName name="example.com.fivetribesscoringsheet.AdvancedActivity">
+        Advanced Activity
+    </screenName>
+    <screenName name="example.com.fivetribesscoringsheet.BasicActivity">
+        Basic Activity
+    </screenName>
+    <screenName name="example.com.fivetribesscoringsheet.StatisticActivity">
+        Statistics Activity
+    </screenName>
+</resources>

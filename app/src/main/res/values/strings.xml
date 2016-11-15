@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Five Tribes Scoring Sheet</string>
+    <string name="basic">Basic</string>
+    <string name="advanced">Advanced</string>
+    <string name="stat">Statistics</string>
+    <string name="new_game">Start new game</string>
+    <string name="title_activity_add_player">AddPlayerActivity</string>
+
+    <string name="add_player_dialog">Add new player to database</string>
+    <string name="add_new_player_button">Add</string>
+    <string name="add_new_player_negative_button">Back</string>
+    <string name="kill_button">KILL</string>
+    <string name="add_button">ADD</string>
+    <string name="ok_button">OK</string>
+    <string name="addplayer_error">Wrong number of players, you need at least 2 players</string>
+    <string name="addplayer_error_more">Wrong number of players, game is for max 5 players</string>
+    <string name="addplayer_activity_title">Add players to game!</string>
+    <string name="addplayer_emptyview">No players in database, you need to add players! </string>
+
+    <string name="button_advanced">Finish</string>
+    <string name="button_advanced_error">You already have your turn! </string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="start">New Game</string>
+
+    <string name="content_authority">example.com.fivetribesscoringsheet</string>
+
+    <string name="people">people</string>
+    <string name="button_basic">Finish</string>
+    <string name="button_end_of_game">Back to menu</string>
+    <string name="advanced_activity_textView">Choose player: </string>
+    <string name="adv">advanced</string>
+    <string name="bas">basic</string>
+
+    <string name="advaced_turn_money">money</string>
+    
+    <string name="auction">auction</string>
+    <string name="chart_money">money</string>
+    <string name="chart_yellow">yellow</string>
+    <string name="chart_white">white</string>
+    <string name="chart_djinn">djinn</string>
+    <string name="chart_palm">palm</string>
+    <string name="chart_palace">palace</string>
+    <string name="chart_camels">camels</string>
+    <string name="chart_carts">cards</string>
+
+    <string name="total">total</string>
+
+    <string name="adv_kill_white">Kill white</string>
+    <string name="adv_kill_yellow">Kill yellow</string>
+    <string name="adv_add_palm">Add palm</string>
+    <string name="adv_add_palace">Add palace</string>
+    <string name="kill_description">How many meeples do you want to kill?</string>
+    <string name="palm_error">You can add one palm/palace per turn</string>
+
+    <string name="statistic_activity_title">Statistics</string>
+    <string name="no_stats">No data in database</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    
+    <string name="remis">draw</string>
+    <string name="win">win</string>
+    <string name="wins">wins</string>
+
+    <string name="des_pie">Winning percentage.</string>
+    <string name="des_bar">Winner was the best in:</string>
+</resources>
