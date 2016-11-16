@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.util.Pair;
 
 import java.util.ArrayList;
@@ -120,7 +121,7 @@ public class Utility {
             for (int i = 0; i < size; i++) {
                 if (total == scores.get(i).calTotal()) {
                     names.add(scores.get(i).getName());
-                    updateWinsInDatabase(name, context);
+                    updateWinsInDatabase(scores.get(i).getName(), context);
                 }
             }
         }
@@ -134,7 +135,7 @@ public class Utility {
             for (int i = 0; i < size; i++) {
                 if (total == scores.get(i).calTotalAdv()) {
                     names.add(scores.get(i).getName());
-                    updateWinsInDatabase(name, context);
+                    updateWinsInDatabase(scores.get(i).getName(), context);
                 }
             }
         }
@@ -173,6 +174,7 @@ public class Utility {
         return name;
     }
     public static void updateWinsInDatabase(String name, Context context){
+        Log.d("Utilyty", "dodaje do bazy danych " + name);
         Cursor cursor = context.getContentResolver().query(
                 MyDatabaseContract.PeopleEntry.CONTENT_URI, new String[]
                         {MyDatabaseContract.PeopleEntry.COLUMN_WINS},

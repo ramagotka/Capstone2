@@ -2,6 +2,7 @@ package example.com.fivetribesscoringsheet;
 
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -30,10 +31,13 @@ import java.util.List;
 
 import example.com.fivetribesscoringsheet.data.MyDatabaseContract;
 
+import static android.R.attr.entries;
 import static android.R.attr.name;
+import static example.com.fivetribesscoringsheet.R.id.chart;
 
 public class BarChartFragment extends Fragment {
     private final static String LOG_TAG = BarChartFragment.class.getName();
+
 
     private static final String[] SCORE_COLUMNS = {
             MyDatabaseContract.ScoresEntry.TABLE_NAME + "." + MyDatabaseContract.ScoresEntry._ID,
@@ -48,11 +52,22 @@ public class BarChartFragment extends Fragment {
             MyDatabaseContract.ScoresEntry.COLUMN_YELLOW
     };
 
+    private ArrayList<BarEntry> mEntry;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_bar_chart, container, false);
+
+        mEntry = new ArrayList<BarEntry>();
+
+        try {
+            mEntry = new GetDataAsyncTask().execute().get();
+        }
+        catch (Exception e){
+            Log.d(LOG_TAG, e.getMessage());
+        }
 
         BarChart chart = (BarChart) view.findViewById(R.id.chart2);
         TextView noStats = (TextView) view.findViewById(R.id.textview_no_stats);
@@ -89,12 +104,33 @@ public class BarChartFragment extends Fragment {
 
         chart.getLegend().setEnabled(false);
 
-        Cursor cursor =  view.getContext().getContentResolver().query(MyDatabaseContract.ScoresEntry.CONTENT_URI,
-                SCORE_COLUMNS, MyDatabaseContract.ScoresEntry.COLUMN_WIN + " =?" , new String[] {"1"},
-                null);
+        if (mEntry.size() > 0) {
+
+            BarDataSet dataSet = new BarDataSet(mEntry, "wins");
+            dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+            BarData data = new BarData(dataSet);
+            data.setBarWidth(0.9f);
+            data.setValueTextSize(10f);
+            chart.setData(data);
+
+            chart.setFitBars(true);
+
+            Description description1 = chart.getDescription();
+            description1.setEnabled(false);
+
+            chart.invalidate();
+        }
+        else {
+            noStats.setVisibility(View.VISIBLE);
+            chart.setVisibility(View.GONE);
+        }
+
+        return view;
+    }
+
+    private ArrayList<BarEntry> getArrayList(Cursor cursor){
 
         ArrayList<BarEntry> entries = new ArrayList<BarEntry>();
-
         int money = 0;
         int yellow = 0;
         int white = 0;
@@ -134,27 +170,32 @@ public class BarChartFragment extends Fragment {
             entries.add(new BarEntry(5, (float) palace, R.string.chart_palace));
             entries.add(new BarEntry(6, (float) camels, R.string.chart_camels));
             entries.add(new BarEntry(7, (float) carts, R.string.chart_carts));
+        }
+        return entries;
+    }
+
+    private class GetDataAsyncTask extends AsyncTask<Void, Void, ArrayList<BarEntry>>{
+
+        @Override
+        protected ArrayList<BarEntry> doInBackground(Void... params) {
+            Cursor cursor =  getActivity().getContentResolver().query(MyDatabaseContract.ScoresEntry.CONTENT_URI,
+                    SCORE_COLUMNS, MyDatabaseContract.ScoresEntry.COLUMN_WIN + " =?" , new String[] {"1"},
+                    null);
+
+            ArrayList<BarEntry> entries = getArrayList(cursor);
             cursor.close();
-
-            BarDataSet dataSet = new BarDataSet(entries, "wins");
-            dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
-            BarData data = new BarData(dataSet);
-            data.setBarWidth(0.9f);
-            data.setValueTextSize(10f);
-            chart.setData(data);
-
-            chart.setFitBars(true);
-
-            Description description1 = chart.getDescription();
-            description1.setEnabled(false);
-
-            chart.invalidate();
-        }
-        else {
-            noStats.setVisibility(View.VISIBLE);
-            chart.setVisibility(View.GONE);
+            Log.d(LOG_TAG, "Zrobione!");
+            return entries;
         }
 
-        return view;
+        @Override
+        protected void onPostExecute(ArrayList<BarEntry> barEntries) {
+            super.onPostExecute(barEntries);
+            mEntry = barEntries;
+        }
     }
 }
+//
+//interface TaskDelegate {
+//    void TaskCompletionResult(String result);
+//}

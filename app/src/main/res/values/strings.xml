@@ -12,10 +12,13 @@
     <string name="kill_button">KILL</string>
     <string name="add_button">ADD</string>
     <string name="ok_button">OK</string>
+    <string name="kill_yellow">kill yellow</string>
+    <string name="kill_white">kill white</string>
     <string name="addplayer_error">Wrong number of players, you need at least 2 players</string>
     <string name="addplayer_error_more">Wrong number of players, game is for max 5 players</string>
     <string name="addplayer_activity_title">Add players to game!</string>
     <string name="addplayer_emptyview">No players in database, you need to add players! </string>
+    <string name="add_player_button">Player Name</string>
 
     <string name="button_advanced">Finish</string>
     <string name="button_advanced_error">You already have your turn! </string>
@@ -66,4 +69,9 @@
 
     <string name="des_pie">Winning percentage.</string>
     <string name="des_bar">Winner was the best in:</string>
+
+    <string name="widget_empty">No data in database, you need to play to get stats!</string>
+
+    <string name="in_database_toast">Already in database!</string>
+    <string name="in_database_fragment">is already in database!</string>
 </resources>

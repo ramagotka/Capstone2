@@ -58,9 +58,10 @@ public class AddPlayerDialogFragment extends DialogFragment {
                 while (cursor.moveToNext()){
                     String name = cursor
                             .getString(cursor.getColumnIndex(MyDatabaseContract.PeopleEntry.COLUMN_NAME));
-                    Log.d("DIalog", name);
+                    //Log.d("DIalog", name);
                     if (name.equals(playerName)){
-                        Toast.makeText(getContext(), playerName + " is already on a list", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), playerName + R.string.in_database_fragment,
+                                Toast.LENGTH_LONG).show();
                         return;
                     }
                 }

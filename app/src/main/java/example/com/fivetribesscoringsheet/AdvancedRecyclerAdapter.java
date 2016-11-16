@@ -55,9 +55,9 @@ public class AdvancedRecyclerAdapter extends RecyclerView.Adapter<AdvancedRecycl
 
     @Override
     public MyRVViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.advanced_turn_text, parent, false);
-        AdvancedRecyclerAdapter.MyRVViewHolder myRVViewHolder = new AdvancedRecyclerAdapter.MyRVViewHolder(view);
-        return myRVViewHolder;
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.advanced_turn_text, parent, false);
+        return new AdvancedRecyclerAdapter.MyRVViewHolder(view);
     }
 
     @Override
@@ -173,7 +173,8 @@ public class AdvancedRecyclerAdapter extends RecyclerView.Adapter<AdvancedRecycl
             holder.button.setVisibility(View.VISIBLE);
             //holder.cardView.setVisibility(View.INVISIBLE);
             if (position == 21){
-                holder.button.setText("Kill");
+                holder.button.setText(R.string.kill_button);
+                holder.button.setContentDescription(mContext.getString(R.string.kill_white));
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -182,7 +183,8 @@ public class AdvancedRecyclerAdapter extends RecyclerView.Adapter<AdvancedRecycl
                 });
             }
             else if (position == 23){
-                holder.button.setText("Kill");
+                holder.button.setText(R.string.kill_button);
+                holder.button.setContentDescription(mContext.getString(R.string.kill_yellow));
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -191,7 +193,8 @@ public class AdvancedRecyclerAdapter extends RecyclerView.Adapter<AdvancedRecycl
                 });
             }
             else if (position == 25){
-                holder.button.setText("Add");
+                holder.button.setText(R.string.add_button);
+                holder.button.setContentDescription(mContext.getString(R.string.add_button));
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -200,7 +203,8 @@ public class AdvancedRecyclerAdapter extends RecyclerView.Adapter<AdvancedRecycl
                 });
             }
             else if (position == 27){
-                holder.button.setText("Add");
+                holder.button.setText(R.string.add_button);
+                holder.button.setContentDescription(mContext.getString(R.string.add_button));
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

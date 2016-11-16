@@ -18,7 +18,7 @@ import static com.github.mikephil.charting.charts.Chart.LOG_TAG;
  * Created by hania on 03.10.16.
  */
 public class Scores implements Serializable{
-    final static String LOG_TAG = Scores.class.getName();
+    private final static String LOG_TAG = Scores.class.getName();
 
 //    private static final String[] PEOPLE_COLUMNS = {
 //            MyDatabaseContract.PeopleEntry.TABLE_NAME + "." + MyDatabaseContract.PeopleEntry._ID,
@@ -27,7 +27,7 @@ public class Scores implements Serializable{
 
     public void set(int j, int value)
     {
-        Log.d("HAHA", "Ustawiam " + j + " " + value);
+       // Log.d("HAHA", "Ustawiam " + j + " " + value);
         switch(j) {
             case 0:
                 auction = value;
@@ -162,7 +162,7 @@ public class Scores implements Serializable{
     }
 
     public int calRaundTotal(){
-        Log.d(LOG_TAG, "auction " + auction + " money " + money);
+       // Log.d(LOG_TAG, "auction " + auction + " money " + money);
         return yellow + white + money + djinn + 3*palm
                 + 5*palace + camel + carts + bonusFromYellow - auction;
     }
@@ -196,12 +196,9 @@ public class Scores implements Serializable{
     public void insertToDatabase(Activity activity){
         if (inDatabase){
             Toast.makeText(activity.getApplicationContext(),
-                    "Already in database!", Toast.LENGTH_LONG).show();
+                    R.string.in_database_toast, Toast.LENGTH_LONG).show();
             return;
-        }
-        Log.d(LOG_TAG, "money" +  firstMoney);
-        Log.d(LOG_TAG, "camel" +  firstCamel);
-        Log.d(LOG_TAG, "yellow" +  firstYellow);
+        };
         ContentValues scoreValues = new ContentValues();
 
         Cursor cursor = activity.getContentResolver().query(
@@ -228,7 +225,7 @@ public class Scores implements Serializable{
                     .insert(MyDatabaseContract.ScoresEntry.CONTENT_URI, scoreValues);
         }
         else {
-            Log.d("Scores ", "Adding to database failed");
+           // Log.d("Scores ", "Adding to database failed");
         }
         cursor.close();
         Intent intent = new Intent(activity, NewAppWidget.class);

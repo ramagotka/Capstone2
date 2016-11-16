@@ -33,6 +33,7 @@
         android:layout_alignParentBottom="true"
         android:onClick="onClickFinish"
         android:text="@string/start"
-        android:id="@+id/button" />
+        android:id="@+id/button"
+        android:contentDescription="@string/start"/>
 
 </RelativeLayout>

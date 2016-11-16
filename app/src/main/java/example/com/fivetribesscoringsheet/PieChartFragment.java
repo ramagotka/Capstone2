@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,7 @@ public class PieChartFragment extends Fragment {
                     (cursor.getColumnIndex(MyDatabaseContract.PeopleEntry.COLUMN_NAME));
             int wins = cursor.getInt(cursor.getColumnIndex(MyDatabaseContract.PeopleEntry.COLUMN_WINS));
             if (wins != 0) {
-                entries.add(new PieEntry(wins, name));
+                entries.add(new PieEntry(wins*10, name)); //there is a bug in library if value is 1
             }
         }
         cursor.close();

@@ -8,5 +8,12 @@
      android:layout_width="match_parent"
      android:layout_height="match_parent"
      android:id="@+id/image_view_widget"/>
+ <TextView
+     android:id="@+id/textview_empty_widget"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:visibility="gone"
+     android:text="@string/widget_empty"
+     android:layout_centerInParent="true"/>
 
 </RelativeLayout>

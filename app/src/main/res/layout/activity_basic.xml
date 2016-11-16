@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_basic"
         android:onClick="onClickFinishBasic"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:contentDescription="@string/button_basic"/>
 
 </LinearLayout>
