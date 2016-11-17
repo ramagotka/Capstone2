@@ -84,6 +84,7 @@ public class AddPlayerActivity extends AppCompatActivity
 
         mmyCursorAdapter = new MyCursorAdapter(getApplicationContext(), cursor, 0);
         listView.setAdapter(mmyCursorAdapter);
+        cursor.close();
 
     }
 
@@ -97,7 +98,6 @@ public class AddPlayerActivity extends AppCompatActivity
         }
         else {
             Intent intent;
-            Log.d(LOG_TAG, "string " + getString(R.string.bas) + " " + class_name);
             if (class_name.equals(getString(R.string.bas))) {
                 intent = new Intent(this, BasicActivity.class);
             } else {

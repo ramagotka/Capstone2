@@ -125,10 +125,10 @@ public class AdvancedRecyclerAdapter extends RecyclerView.Adapter<AdvancedRecycl
            // Log.d(LOG_TAG, "j  = " + j);
             int ipkt = mScore.get(j);
             if (ipkt == 0){
-                holder.editText.setText("");
+                holder.editText.setText(R.string.empty_text);
             }
             else {
-                holder.editText.setText("" + ipkt);
+                holder.editText.setText(R.string.empty_text + ipkt);
             }
             final AdvancedRecyclerAdapter me = this;
 

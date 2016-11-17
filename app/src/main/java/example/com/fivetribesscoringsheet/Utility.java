@@ -174,7 +174,6 @@ public class Utility {
         return name;
     }
     public static void updateWinsInDatabase(String name, Context context){
-        Log.d("Utilyty", "dodaje do bazy danych " + name);
         Cursor cursor = context.getContentResolver().query(
                 MyDatabaseContract.PeopleEntry.CONTENT_URI, new String[]
                         {MyDatabaseContract.PeopleEntry.COLUMN_WINS},

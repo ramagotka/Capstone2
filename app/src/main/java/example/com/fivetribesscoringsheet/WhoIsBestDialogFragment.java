@@ -32,7 +32,7 @@ public class WhoIsBestDialogFragment extends DialogFragment {
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        builder.setTitle(name + " is the best this turn")
+        builder.setTitle(name + R.string.is_the_best)
                 .setPositiveButton(R.string.ok_button,
                         null);
         return builder.create();

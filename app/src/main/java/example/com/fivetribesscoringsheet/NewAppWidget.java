@@ -106,7 +106,7 @@ public class NewAppWidget extends AppWidgetProvider {
                     (cursor.getColumnIndex(MyDatabaseContract.PeopleEntry.COLUMN_NAME));
             int wins = cursor.getInt(cursor.getColumnIndex(MyDatabaseContract.PeopleEntry.COLUMN_WINS));
             if (wins != 0) {
-                entries.add(new PieEntry(wins, name));
+                entries.add(new PieEntry(wins*10, name));
             }
         }
         cursor.close();

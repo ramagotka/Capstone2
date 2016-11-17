@@ -59,8 +59,7 @@ public class BasicRecyclerAdapter extends RecyclerView.Adapter<BasicRecyclerAdap
     @Override
     public MyRVViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.basic_text, parent, false);
-        MyRVViewHolder myRVViewHolder = new MyRVViewHolder(view);
-        return myRVViewHolder;
+        return new MyRVViewHolder(view);
     }
 
     @Override
@@ -73,9 +72,9 @@ public class BasicRecyclerAdapter extends RecyclerView.Adapter<BasicRecyclerAdap
         if(holder.tw != null)
             holder.editText.removeTextChangedListener(holder.tw);
         holder.tw = null;
-        holder.editText.setText("");
+        holder.editText.setText(R.string.empty_text);
         holder.editText.setEnabled(true);
-        holder.editText.setHint("");
+        holder.editText.setHint(R.string.empty_text);
 
 
         if (position == 0) {
@@ -88,31 +87,31 @@ public class BasicRecyclerAdapter extends RecyclerView.Adapter<BasicRecyclerAdap
             holder.editText.setVisibility(View.INVISIBLE);
             holder.textView.setVisibility(View.VISIBLE);
             if (position / mColumns == 1) {
-                holder.textView.setText("money");
+                holder.textView.setText(R.string.chart_money);
             }
             if (position / mColumns == 2) {
-                holder.textView.setText("yellow");
+                holder.textView.setText(R.string.chart_yellow);
             }
             if (position / mColumns == 3) {
-                holder.textView.setText("white");
+                holder.textView.setText(R.string.chart_white);
             }
             if (position / mColumns == 4) {
-                holder.textView.setText("djinn");
+                holder.textView.setText(R.string.chart_djinn);
             }
             if (position / mColumns == 5) {
-                holder.textView.setText("palms");
+                holder.textView.setText(R.string.chart_palm);
             }
             if (position / mColumns == 6) {
-                holder.textView.setText("palace");
+                holder.textView.setText(R.string.chart_palace);
             }
             if (position / mColumns == 7) {
-                holder.textView.setText("camels");
+                holder.textView.setText(R.string.chart_camels);
             }
             if (position / mColumns == 8) {
-                holder.textView.setText("cards");
+                holder.textView.setText(R.string.chart_carts);
             }
             if (position / mColumns == 9) {
-                holder.textView.setText("total");
+                holder.textView.setText(R.string.total);
             }
         }
         else if (position/mColumns == 9){
@@ -125,10 +124,10 @@ public class BasicRecyclerAdapter extends RecyclerView.Adapter<BasicRecyclerAdap
             final int j = position / mColumns;
             int ipkt = pScores.get(i).get(j);
             if (ipkt == 0){
-                holder.editText.setText("");
+                holder.editText.setText(R.string.empty_text);
             }
             else {
-                holder.editText.setText("" + ipkt);
+                holder.editText.setText(R.string.empty_text + ipkt);
             }
             final BasicRecyclerAdapter me = this;
 

@@ -66,6 +66,8 @@ public class AddPlayerDialogFragment extends DialogFragment {
                     }
                 }
 
+                cursor.close();
+
                 ContentValues playerValues = new ContentValues();
                 playerValues.put(MyDatabaseContract.PeopleEntry.COLUMN_NAME, playerName);
                 playerValues.put(MyDatabaseContract.PeopleEntry.COLUMN_WINS, 0);

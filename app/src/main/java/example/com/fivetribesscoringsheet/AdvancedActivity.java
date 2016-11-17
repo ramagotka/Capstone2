@@ -38,7 +38,7 @@ public class AdvancedActivity extends AppCompatActivity {
         }
 
         if (savedInstanceState != null && savedInstanceState.containsKey("list")){
-            mScores = (ArrayList<Scores>) extras.get("list"); //prawdopodobne zrodlo bledow
+            mScores = (ArrayList<Scores>) extras.get("list");
         }
         else {
             mScores = new ArrayList<Scores>(list.size());

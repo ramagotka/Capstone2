@@ -184,7 +184,6 @@ public class BarChartFragment extends Fragment {
 
             ArrayList<BarEntry> entries = getArrayList(cursor);
             cursor.close();
-            Log.d(LOG_TAG, "Zrobione!");
             return entries;
         }
 

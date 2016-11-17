@@ -74,4 +74,9 @@
 
     <string name="in_database_toast">Already in database!</string>
     <string name="in_database_fragment">is already in database!</string>
+    <string name="kill_error_toast"> doesn\'t have so much!</string>
+
+    <string name="empty_text"></string>
+    <string name="is_the_best"> is the best this turn</string>
+    <string name="ex">!</string>
 </resources>

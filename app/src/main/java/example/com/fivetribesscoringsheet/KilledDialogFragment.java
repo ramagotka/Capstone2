@@ -67,7 +67,7 @@ public class KilledDialogFragment extends DialogFragment {
 
 
                                 if (count > counts[lw.getCheckedItemCount()]){
-                                    Toast.makeText(getContext(), name + " doesn't have so much!",
+                                    Toast.makeText(getContext(), name + R.string.kill_error_toast,
                                             Toast.LENGTH_LONG).show();
                                 }
                                 else {
